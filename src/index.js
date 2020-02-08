@@ -5,7 +5,7 @@ import { Canvas, Controls } from "./App";
 import * as serviceWorker from "./serviceWorker";
 import * as tf from "@tensorflow/tfjs";
 
-const model = tf.loadModel("./model/model.json");
+const model = tf.loadLayersModel("./model/model.json");
 const labels = require("./labels.json");
 let ref = React.createRef();
 
