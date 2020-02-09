@@ -1,13 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import { Canvas, Controls } from "./App";
 import * as serviceWorker from "./serviceWorker";
-import * as tf from "@tensorflow/tfjs";
 
-const model = tf.loadLayersModel("./model/model.json");
-const labels = require("./labels.json");
-let ref = React.createRef();
+import "./index.css";
 
 ReactDOM.render(
   <div>

@@ -13,9 +13,19 @@ function preprocessCanvas(canvas) {
   return tensor.div(255.0); // Normalize [0..255] values into [0..1] range
 }
 
-export function getPrediction(theCanvas, model) {
+function getPrediction(theCanvas, model) {
   const tensor = preprocessCanvas(theCanvas);
   return model
     .then(loadedModel => loadedModel.predict(tensor).data())
     .then(async prediction => await tf.argMax(prediction).data()); // returns an int32 containing the predicted class
 }
+
+async function loadModel(modelPath) {
+  console.log("TF: Model loading...");
+  // load the model using a HTTPS request (where you have stored your model files)
+  return await tf
+    .loadLayersModel(modelPath)
+    .then(console.log("TF: Model loaded."));
+}
+
+export { getPrediction, loadModel };
