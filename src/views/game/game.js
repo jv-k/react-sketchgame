@@ -1,29 +1,18 @@
 import React from "react";
 import { SketchGame } from "components/SketchGame";
 
-import { GameSFX } from "../../utils/sounds.js";
+// load data
+// import { loadModel, loadLabels } from  "../../utils";
+// const model = loadModel("./model/model.json");
+// const labels = require("./labels.json");
 
 export const game = () => {
   return (
-    <>
-      <div>game</div>
-      <Button 
-        route="/home"
-        label="Home" 
-      />  
-      <Button 
-        click={() => {
-          console.log('clear clicked');
-        }}
-        label="Clear" 
-      />  
-    </>  
-                click={() => { 
-                  GameSFX.play("clear");
-                }} 
-                click={() => { 
-                  GameSFX.silence();
-                  GameSFX.play("quit");
-                }}
+    <div className="h-100 d-flex align-items-center">
+      <div className="container-sm">        
+        {/* Load data and pass config to game */}
+        <SketchGame />
+      </div>
+    </div>
   );
 }
