@@ -22,11 +22,16 @@
   },
   "dependencies": {
     "@tensorflow/tfjs": "^1.5.2",
+    "bootstrap": "^4.4.1",
     "jest-canvas-mock": "^2.1.0",
+    "nes.css": "^2.3.0",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.3.1"
+    "react-scripts": "^3.3.1",
+    "tone": "^13.8.25",
+    "typed.js": "^2.0.11"
   },
   "browserslist": [
     "last 1 chrome version",
