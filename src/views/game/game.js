@@ -1,6 +1,8 @@
 import React from "react";
 import { Button } from "../../components/shared/Button.js";
 
+import { GameSFX } from "../../utils/sounds.js";
+
 export const game = () => {
   return (
     <>
@@ -16,5 +18,12 @@ export const game = () => {
         label="Clear" 
       />  
     </>  
+                click={() => { 
+                  GameSFX.play("clear");
+                }} 
+                click={() => { 
+                  GameSFX.silence();
+                  GameSFX.play("quit");
+                }}
   );
 }
