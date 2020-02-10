@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../../components/shared/Button.js";
+import { Button } from "components/SketchGame/components/Button";
 
 export const result = () => {
   return (

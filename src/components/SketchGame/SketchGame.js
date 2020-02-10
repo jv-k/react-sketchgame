@@ -1,4 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Logo } from "./components/Logo";
+import { Controls } from "./components/Controls";
+
+import { useSketchGame } from "./hooks";
 
 import "./SketchGame.css";
 import "./hooks";
@@ -25,4 +29,4 @@ class SketchGame extends React.Component {
 
 }
 
-export default SketchGame;
+export { SketchGame };

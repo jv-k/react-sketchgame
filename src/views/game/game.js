@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../../components/shared/Button.js";
+import { SketchGame } from "components/SketchGame";
 
 import { GameSFX } from "../../utils/sounds.js";
 

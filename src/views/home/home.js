@@ -1,5 +1,7 @@
-import React from "react";
-import { Button } from "../../components/shared/Button.js";
+import React, { useEffect } from "react";
+import { Button } from "components/SketchGame/components/Button";
+import { Logo } from "components/SketchGame/components/Logo";
+import { GameSFX } from "components/SketchGame/utils/sounds.js";
 
 export const home = () => {
 import { GameSFX } from "../../utils/sounds.js";
