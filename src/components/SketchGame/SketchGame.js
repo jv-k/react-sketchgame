@@ -58,6 +58,7 @@ class SketchGame extends React.Component {
           </div>
           
           <div className="row">
+            <ScoreCard />
             <Controls />
           </div>
         </div>

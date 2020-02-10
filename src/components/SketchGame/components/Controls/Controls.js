@@ -4,7 +4,7 @@ import { GameSFX } from "../../utils/sounds.js";
 
 export const Controls = () => {
   return(
-    <>
+    <div className="row">
       <div className="col">
         <Button 
           label="Clear" 
@@ -25,6 +25,6 @@ export const Controls = () => {
           className="float-right"
         />  
       </div>
-    </>
+    </div>
   );
 }
