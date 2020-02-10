@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getPrediction } from "../Utils";
+import { Button } from "../Button";
 
 const Controls = ({ theCanvas, model, labels }) => {
   let [prediction, setPrediction] = useState(""); // Sets default label to empty string.
