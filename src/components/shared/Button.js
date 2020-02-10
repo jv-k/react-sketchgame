@@ -1,16 +1,37 @@
+// A customised flexible button component
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const Button = (props) => {
-  return props.route ? (
-    <Link to={ props.route }>
-      <button>
-        { props.label }
-      </button>
-    </Link>
-  ) : (
-    <button onClick={ props.click }>
+const ButtonElem = (props) => {
+  return (
+    <button 
+      className={ "nes-btn" + (props.className ? " " + props.className : "") }
+      onClick={ props.click }
+      style={ props.style }
+    >
       { props.label }
     </button>
-  );
+  )
+}
+
+export const Button = (props) => {
+  if (props.route)
+    return (
+      <Link 
+        to={ props.route } 
+        className={ props.className || props.linkClassName } 
+        style={ props.style || props.linkStyle }
+        onClick={ props.click }
+      >
+        <ButtonElem 
+          label={ props.label }
+          className={ props.buttonClassName }
+        />
+      </Link>
+    ) 
+  else 
+    return (    
+      <ButtonElem {...props} />
+    );
 }
