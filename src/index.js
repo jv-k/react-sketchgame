@@ -38,7 +38,8 @@ import { Routes } from './routes';
 
 import * as serviceWorker from "./serviceWorker";
 
-import "./index.css";
+import 'bootstrap/dist/css/bootstrap.css';
+import "./styles/index.scss";
 
 ReactDOM.render(
   <Router>
