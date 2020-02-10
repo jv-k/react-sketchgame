@@ -2,7 +2,7 @@ import React from "react";
 import { Logo } from "./components/Logo";
 import { Controls } from "./components/Controls";
 
-import { useSketchGame } from "./hooks";
+import { GameProvider } from "./providers";
 
 import "./SketchGame.css";
 import "nes.css/css/nes.min.css";
