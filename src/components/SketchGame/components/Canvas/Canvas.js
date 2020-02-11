@@ -43,7 +43,8 @@ const Canvas = React.forwardRef((props, ref) => {
 
     context.fillStyle = "#ffffff";
     context.fillRect(0, 0, canvas.height, canvas.width);
-  });
+
+  }, [ref]);
 
   return (
     <canvas
