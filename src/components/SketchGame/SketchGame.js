@@ -18,11 +18,10 @@ const ScoreCard = (props) => {
   );
 }
 
-const AnswerCard = (props) => {
-  return(
-    <div className="nes-container is-rounded mb-3" style={{ width: "300px", height: "300px"}}></div>  
-  );
-}
+        <GameProvider value={{ ...config, state, dispatch, model, curCanvasRef, setCurCanvasRef }}>
+          { rounds }
+          <Controls />
+        </GameProvider>
 
 const QuestionCard = (props) => {
   return(
