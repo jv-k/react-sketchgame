@@ -8,7 +8,7 @@ const GameSFXConfig = {
     clear: "clear.wav",
     lose:  "game_lose.wav",
     win:   "game_win.wav",
-    point_won: "point_won.wav", 
+    point_win: "point_win.wav", 
     point_lose: "point_lose.wav", 
     time_tick: "time_seconds.wav", 
     time_warn: "time_warning.wav",
