@@ -11,6 +11,7 @@ import { AnswerCard } from "../AnswerCard";
 import { QuestionCard } from "../QuestionCard";
 
 let canvasRef = React.createRef();
+import { Redirect } from "react-router-dom";
 
 export const GameRound = ({ index, label, hideRound, timeLimit }) => {
 
@@ -24,6 +25,10 @@ export const GameRound = ({ index, label, hideRound, timeLimit }) => {
   const { setCurCanvasRef } = useGameContext();
   const { roundDecider, isGameOver } = useRoundDecider({ label, canvasRef, stopTimer });
 
+  const renderRedirect = () => {
+    if (isGameOver) return <Redirect to='/results' />;    
+  }
+  
   useEffect(() => {
     setCurCanvasRef(canvasRef);
     startTimer();        
@@ -33,6 +38,7 @@ export const GameRound = ({ index, label, hideRound, timeLimit }) => {
 
   return (
     <RoundProvider value={{ index, label, timeLeft, canvasRef }}>
+      { renderRedirect() }
       <div className="row">
         <div className="col">
           <ScoreCard />
