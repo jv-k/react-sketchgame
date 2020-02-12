@@ -3,7 +3,7 @@ import React, { useReducer, useState } from "react";
 import { Logo }      from "./components/Logo";
 
 import { GameProvider } from "./providers";
-import { gameReducer }  from "./reducers";
+import { pointReducer }  from "./reducers";
 import { useRounds } from "./hooks";
 
 // styles
