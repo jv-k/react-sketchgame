@@ -2,16 +2,22 @@ import React from "react";
 import { SketchGame } from "components/SketchGame";
 
 // load data
-// import { loadModel, loadLabels } from  "../../utils";
-// const model = loadModel("./model/model.json");
-// const labels = require("./labels.json");
+import { loadModel } from "utils";
+
+const model = loadModel("./model/model.json");
+const initialState = {
+  config: {
+    labels: require("labels.json"),
+    noRounds: 1,
+    timeLimit: 10 // seconds
+  }
+};
 
 export const game = () => {
   return (
     <div className="h-100 d-flex align-items-center">
       <div className="container-sm">        
-        {/* Load data and pass config to game */}
-        <SketchGame />
+        <SketchGame { ...initialState} model={ model }/>
       </div>
     </div>
   );
