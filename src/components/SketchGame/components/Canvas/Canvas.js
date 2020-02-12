@@ -1,8 +1,11 @@
 import React from "react";
-import { useContext, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const Canvas = React.forwardRef((props, ref) => {
-  let mouseDown = false;
+export const Canvas = React.forwardRef((props, ref) => {
+
+  // had to use state in order not to lose the mousedown when parent re-renders
+  let [ mouseDown, setMouseDown ] = useState(false);
+  
   let lastX;
   let lastY;
 
@@ -23,7 +26,7 @@ const Canvas = React.forwardRef((props, ref) => {
   }
 
   const handleMouseup = () => {
-    mouseDown = false;
+    setMouseDown(false);
     [lastX, lastY] = [undefined, undefined];
   };
 
@@ -48,14 +51,18 @@ const Canvas = React.forwardRef((props, ref) => {
 
   return (
     <canvas
-      height={300}
-      width={300}
-      ref={ref}
-      onMouseDown={() => (mouseDown = true)}
-      onMouseUp={handleMouseup}
-      onMouseMove={e => handleMousemove(e)}
+      height={ 300 }
+      width={ 300 }
+      ref={ ref }
+      onMouseDown={ () => setMouseDown(true) }
+      onMouseUp = { handleMouseup }
+      onMouseMove = { e => handleMousemove(e) }
     />
   );
 });
 
-export { Canvas };
+export const clearCanvas = (ref) => {
+  const canvas = ref.current;
+  const ctx = canvas.getContext("2d");
+  ctx.fillRect(0, 0, canvas.height, canvas.width);
+}
