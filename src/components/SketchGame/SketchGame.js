@@ -9,14 +9,6 @@ import "nes.css/css/nes.min.css";
 
 // let ref = React.createRef();
 
-const ScoreCard = (props) => {
-  return(
-    <div className="nes-container is-centered is-rounded mb-3">
-      <p className="">Round 1 of 10</p>
-      <progress className="m-0 nes-progress is-success" value="20" max="100" style={{height: "1em"}}></progress>
-    </div>
-  );
-}
 
         <GameProvider value={{ ...config, state, dispatch, model, curCanvasRef, setCurCanvasRef }}>
           { rounds }
