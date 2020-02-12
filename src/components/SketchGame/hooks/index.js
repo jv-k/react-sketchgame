@@ -2,4 +2,5 @@
 export * from './useGameContext';
 export * from './useRoundContext';
 export * from './useRounds';
+export * from './useRoundDecider';
 export * from './useTimer';

@@ -1,28 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { GameRound } from  "../components/GameRound";
 
-export const useRounds = ({ noRounds, labels, timeLimit }) => {
-  
-  const [ hidden, setHidden ] = useState([]);
+// returns an array collection of JSX round components
+export const useRounds = ({ currentRound, noRounds, labels, timeLimit }) => {
+    
+  let rounds = Array.apply(null, { length: noRounds });
 
-  const rounds = Array.apply(null, { length: noRounds }).map(
-    (round, index) => {  
-      return hidden.includes(index) ? null : (
-        <GameRound
-          index={ index } key={ index }
-          timeLimit={ timeLimit }
-          label={ labels[index] }
-          hideRound={() => {
-            setHidden([...hidden, index]);
-          }}
-        />
-      )
-    }
-  );
+  rounds = rounds.map((round, index) => {  
+    // only make visible the currentRound
+    return (currentRound === index) ? (
+      <GameRound
+        index={ index } key={ index }
+        timeLimit={ timeLimit }
+        label={ labels[index] }
+      />
+    ) : null
+  });
 
-  const roundsToGo = noRounds - hidden.length;
-
-  const unhideAllRounds = () => setHidden([])
-
-  return { rounds, roundsToGo, unhideAllRounds };
+  return { rounds };
 }
