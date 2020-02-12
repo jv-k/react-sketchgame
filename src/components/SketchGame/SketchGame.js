@@ -3,6 +3,7 @@ import { Logo } from "./components/Logo";
 import { Controls } from "./components/Controls";
 
 import { GameProvider } from "./providers";
+import { gameReducer }  from "./reducers";
 
 import "./SketchGame.css";
 import "nes.css/css/nes.min.css";

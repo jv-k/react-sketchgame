@@ -1,10 +1,6 @@
 import { useContext } from "react";
-import { RoundContext } from "../providers/RoundProvider";
+import { RoundContext } from "../providers";
 
 export const useRoundContext = () => {
-  const roundContext = useContext(RoundContext);
-  return {
-      state: roundContext[0],
-      dispatch: roundContext[1]
-  }
+  return useContext(RoundContext);
 };
