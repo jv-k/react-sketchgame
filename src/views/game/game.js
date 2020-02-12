@@ -8,8 +8,8 @@ const model = loadModel("./model/model.json");
 const initialState = {
   config: {
     labels: require("labels.json"),
-    noRounds: 1,
-    timeLimit: 10 // seconds
+    noRounds: 10,
+    timeLimit: 20 // seconds
   }
 };
 
