@@ -10,19 +10,18 @@ import { ScoreCard } from  "../ScoreCard";
 import { AnswerCard } from "../AnswerCard";
 import { QuestionCard } from "../QuestionCard";
 
-let canvasRef = React.createRef();
 import { Redirect } from "react-router-dom";
 
-export const GameRound = ({ index, label, hideRound, timeLimit }) => {
+let canvasRef = React.createRef();
 
+export const GameRound = ({ index, label, timeLimit }) => {
+ 
   // set-up timer
   const { timeLeft, startTimer, stopTimer } = useTimer(
     timeLimit, 
     () => roundDecider() // callback for when timer is done 
   );
 
-  // this is for the control button in the GameContext
-  const { setCurCanvasRef } = useGameContext();
   const { roundDecider, isGameOver } = useRoundDecider({ label, canvasRef, stopTimer });
 
   const renderRedirect = () => {
@@ -30,9 +29,11 @@ export const GameRound = ({ index, label, hideRound, timeLimit }) => {
   }
   
   useEffect(() => {
-    setCurCanvasRef(canvasRef);
     startTimer();        
-    return () => stopTimer(); // cleanup:
+
+    return () => { // cleanup:
+      stopTimer(); 
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
