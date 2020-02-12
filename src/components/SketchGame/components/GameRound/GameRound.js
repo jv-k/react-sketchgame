@@ -4,6 +4,7 @@ import { RoundProvider } from "../../providers";
 import { useGameContext } from  "../../hooks";
 import { useTimer } from  "../../hooks";
 
+import { Controls }  from "../Controls";
 import { ScoreCard } from  "../ScoreCard";
 import { AnswerCard } from "../AnswerCard";
 import { QuestionCard } from "../QuestionCard";
@@ -31,8 +32,7 @@ export const GameRound = ({ index, label, hideRound, timeLimit }) => {
   }, []);
 
   return (
-    <RoundProvider value={{ index, label, hideRound, timeLeft, canvasRef }}>
-      
+    <RoundProvider value={{ index, label, timeLeft, canvasRef }}>
       <div className="row">
         <div className="col">
           <ScoreCard />
@@ -49,8 +49,8 @@ export const GameRound = ({ index, label, hideRound, timeLimit }) => {
             timeLeft={ timeLeft }
           />
         </div>
-      </div>       
-
+      </div>
+      <Controls canvasRef={ canvasRef } nextRound={ roundDecider }/>
     </RoundProvider>      
   );
 };

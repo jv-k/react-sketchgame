@@ -1,7 +1,6 @@
 import React, { useReducer, useState } from "react";
 
 import { Logo }      from "./components/Logo";
-import { Controls }  from "./components/Controls";
 
 import { GameProvider } from "./providers";
 import { gameReducer }  from "./reducers";
@@ -40,7 +39,6 @@ export const SketchGame = ({ config, model }) => {
 
         <GameProvider value={{ ...config, state, dispatch, model, curCanvasRef, setCurCanvasRef }}>
           { rounds }
-          <Controls />
         </GameProvider>
 
       </div>

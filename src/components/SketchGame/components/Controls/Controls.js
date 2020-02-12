@@ -2,22 +2,25 @@ import React from "react";
 import { Button } from "../Button";
 import { clearCanvas } from "../Canvas";
 import { GameSFX } from "../../utils/sounds.js";
-import { useGameContext } from  "../../hooks";
 
-export const Controls = () => {
 
-  const { curCanvasRef } = useGameContext();
-  
+export const Controls = ({ canvasRef, nextRound }) => {
+
   return(
     <div className="row">
       <div className="col">
       <Button 
           label="Clear" 
           click={() => { 
-            clearCanvas(curCanvasRef);
+            clearCanvas(canvasRef);
             GameSFX.play("clear");
           }} 
           className="is-warning"
+        /> 
+        <Button 
+          label="Next >" 
+          click={() => nextRound() } 
+          className="is-success"
         /> 
       </div>
       <div className="col"> 
