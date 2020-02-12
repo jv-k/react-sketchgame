@@ -12,32 +12,28 @@ import "nes.css/css/nes.min.css";
 
 export const SketchGame = ({ config, model }) => {
 
-  const initialConfig = {
-    score: 0,
-    labels: config.labels, // we'll randomize this later, so it should be in state
-    currentRound: 1
-  }
-  const [ state, dispatch ] = useReducer(gameReducer, { ...initialConfig });
-  
-  // In my implementation there's only one clear canvas btn as opposed to one
-  // for each round container, which makes life harder when it comes to clearing the canvas,
-  // (for practice!). So the following is the way I used to tell the GameContext
-  // what the current visible canvas ref is for this purpose:
-  const [ curCanvasRef, setCurCanvasRef ] = useState({});
-
-  console.log("ROOT");
+  const [ score, dispatch ] = useReducer(pointReducer, 0);
+  const [ currentRound, setCurrentRound ] = useState(0);
  
   // TODO: 
-  // – start game method
-  // – reset game method
-  const { rounds } = useRounds({ ...config });
+  // can't pass these by context (useRounds isn't mounted and context isn't present yet
+  // in this document – note: it would work if SketchGame was wrapper in a Provider
+  // from an outside wrapper component) so have to use arguments
+  const { rounds } = useRounds({ ...config, currentRound, setCurrentRound });
 
   return(  
     <>
       <Logo />      
       <div className="nes-container is-rounded p-2" style={{ backgroundColor: "rgba(0,0,0,0)"}} >
 
-        <GameProvider value={{ ...config, state, dispatch, model, curCanvasRef, setCurCanvasRef }}>
+        <GameProvider value={{
+          ...config, 
+          score,
+          dispatch, 
+          model,
+          currentRound, 
+          setCurrentRound           
+        }}>
           { rounds }
         </GameProvider>
 
