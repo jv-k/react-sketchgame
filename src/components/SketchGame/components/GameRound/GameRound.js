@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 
 import { RoundProvider } from "../../providers";
-import { useGameContext } from  "../../hooks";
+
+import { useRoundDecider } from "../../hooks";
 import { useTimer } from  "../../hooks";
 
 import { Controls }  from "../Controls";
@@ -16,13 +17,12 @@ export const GameRound = ({ index, label, hideRound, timeLimit }) => {
   // set-up timer
   const { timeLeft, startTimer, stopTimer } = useTimer(
     timeLimit, 
-    ()=>{  // callback for when timer is done
-      console.log("TIMER DONE!");
-    }
+    () => roundDecider() // callback for when timer is done 
   );
 
   // this is for the control button in the GameContext
   const { setCurCanvasRef } = useGameContext();
+  const { roundDecider, isGameOver } = useRoundDecider({ label, canvasRef, stopTimer });
 
   useEffect(() => {
     setCurCanvasRef(canvasRef);
