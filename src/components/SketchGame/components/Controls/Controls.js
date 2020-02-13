@@ -3,8 +3,7 @@ import { Button } from "../Button";
 import { clearCanvas } from "../Canvas";
 import { GameSFX } from "../../utils/sounds.js";
 
-
-export const Controls = ({ canvasRef, nextRound }) => {
+export const Controls = ({ canvasRef, NextBtnCallBack }) => {
 
   return(
     <div className="row">
@@ -19,7 +18,7 @@ export const Controls = ({ canvasRef, nextRound }) => {
         /> 
         <Button 
           label="Next >" 
-          click={() => nextRound() } 
+          click={() => NextBtnCallBack() } 
           className="is-success"
         /> 
       </div>

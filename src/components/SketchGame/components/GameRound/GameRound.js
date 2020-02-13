@@ -5,10 +5,10 @@ import { RoundProvider } from "../../providers";
 import { useRoundDecider } from "../../hooks";
 import { useTimer } from  "../../hooks";
 
-import { Controls }  from "../Controls";
 import { ScoreCard } from  "../ScoreCard";
 import { AnswerCard } from "../AnswerCard";
 import { QuestionCard } from "../QuestionCard";
+import { Controls }  from "../Controls";
 
 import { Redirect } from "react-router-dom";
 
@@ -57,7 +57,7 @@ export const GameRound = ({ index, label, timeLimit }) => {
           />
         </div>
       </div>
-      <Controls canvasRef={ canvasRef } nextRound={ roundDecider }/>
+      <Controls canvasRef={ canvasRef } NextBtnCallBack={ roundDecider }/>
     </RoundProvider>      
   );
 };
