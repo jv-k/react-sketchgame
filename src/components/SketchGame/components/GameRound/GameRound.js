@@ -5,7 +5,7 @@ import { RoundProvider } from "../../providers";
 import { useRoundDecider } from "../../hooks";
 import { useTimer } from  "../../hooks";
 
-import { ScoreCard } from  "../ScoreCard";
+import { StatusCard } from  "../StatusCard";
 import { AnswerCard } from "../AnswerCard";
 import { QuestionCard } from "../QuestionCard";
 import { Controls }  from "../Controls";
@@ -42,10 +42,9 @@ export const GameRound = ({ index, label, timeLimit }) => {
       { renderRedirect() }
       <div className="row">
         <div className="col">
-          <ScoreCard />
+          <StatusCard />
         </div>
       </div>
-
       <div className="row align-items-end">  
         <div className="col">          
           <AnswerCard ref={ canvasRef } />
