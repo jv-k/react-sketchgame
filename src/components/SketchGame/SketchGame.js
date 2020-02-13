@@ -10,7 +10,7 @@ import { useRounds } from "./hooks";
 import "./SketchGame.css";
 import "nes.css/css/nes.min.css";
 
-export const SketchGame = ({ config, model }) => {
+export const SketchGame = ({ config }) => {
 
   const [ score, dispatch ] = useReducer(pointReducer, 0);
   const [ currentRound, setCurrentRound ] = useState(0);
