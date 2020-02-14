@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
-import { Button } from "components/SketchGame/components/Button";
+
 import { Logo } from "components/SketchGame/components/Logo";
+import { Button } from "components/SketchGame/components/Button";
+import { Checkbox } from "components/SketchGame/components/Checkbox/Checkbox";
+
+import { useLocalStorage } from "components/SketchGame/hooks";
+
 import { GameSFX } from "components/SketchGame/utils/sounds.js";
 
 import Typed from 'typed.js';
@@ -13,11 +18,10 @@ const typedConfig = {
 
 export const Home = () => {
 
-  // using useEffect from the router, seems it's the reason the linter doesn't 
-  // think this fn isn't React – hacky fix for now:
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+  // save to local storage so that components that use SFX can respect the app setting:
+  const [ soundOn, setSoundOn ] = useLocalStorage("soundOn");
+   
   useEffect(() => {
-
     // mount:
     let typed = new Typed(
       '.typed-msg', 
@@ -28,15 +32,12 @@ export const Home = () => {
     return () => {
       typed.destroy();
     }
-
   });
 
   return (
     <div className="h-100 d-flex align-items-center">
       <div className="container-sm">
-
         <Logo />
-
         <section className="message">
           <div 
             className="nes-balloon from-left d-block"
@@ -52,17 +53,23 @@ export const Home = () => {
         </section>
 
         <i className="nes-octocat animate float-left"></i>
-        <Button 
-          route="/game" 
-          click={() => {
-            GameSFX.play("click");
-            GameSFX.play("theme");
-          }}
-          label="Play Game >" 
-          className="float-right mt-3"
-          buttonClassName="is-success"
-        />
-
+        <div className="float-right">
+          <Checkbox 
+            isChecked={ soundOn } 
+            onChange={ 
+              (checked) => setSoundOn(checked) 
+            }/>
+          <Button 
+            route="/game"
+            click={() => {
+              GameSFX.play("click", soundOn);
+              GameSFX.play("theme", soundOn);
+            }}
+            label="Play Game >" 
+            className="mt-3"
+            buttonClassName="is-success"
+          />
+        </div>
       </div>
     </div>
   );

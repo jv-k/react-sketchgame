@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 
 import { useGameContext } from  ".";
+import { useLocalStorage } from ".";
 
 import { getPrediction } from "utils";
 import { GameSFX } from "../utils/sounds.js";
@@ -18,6 +19,8 @@ export const useRoundDecider = ({ canvasRef, currentLabel, stopTimer }) => {
           score,
           dispatch
         } = useGameContext();
+  const [ soundOn ] = useLocalStorage("soundOn");
+
 
   const roundDecider = () => 
     (isGameOver) ? null :
@@ -27,10 +30,10 @@ console.log(labels);
         if (labels[prediction[0]] === currentLabel) { 
           // WON ROUND!
           dispatch({ type: "ADD_POINTS" });
-          GameSFX.play("point_win");
+          GameSFX.play("point_win", soundOn);
         } else {
           // TODO: GameContext->updateNextMessage – sarcastically!
-          GameSFX.play("point_lose");
+          GameSFX.play("point_lose", soundOn);
         }
         
         if (currentRound < noRounds - 1) {

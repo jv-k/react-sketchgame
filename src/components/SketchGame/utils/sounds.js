@@ -26,8 +26,8 @@ class SFXPlayer {
     );
   }
 
-  play = (id) => {
-    this.sfx[id].start();
+  play = (id, soundOn) => {
+    if (soundOn) this.sfx[id].start();
   }
 
   stop = (id) => {

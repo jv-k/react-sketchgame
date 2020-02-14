@@ -3,7 +3,11 @@ import { Button } from "../Button";
 import { clearCanvas } from "../Canvas";
 import { GameSFX } from "../../utils/sounds.js";
 
+import { useLocalStorage } from "../../hooks";
+
 export const Controls = ({ canvasRef, NextBtnCallBack }) => {
+
+  const [ soundOn ] = useLocalStorage("soundOn");
 
   return(
     <div className="row">
@@ -12,7 +16,7 @@ export const Controls = ({ canvasRef, NextBtnCallBack }) => {
           label="Clear" 
           click={() => { 
             clearCanvas(canvasRef);
-            GameSFX.play("clear");
+            GameSFX.play("clear", soundOn);
           }} 
           className="is-warning"
         /> 
@@ -26,7 +30,7 @@ export const Controls = ({ canvasRef, NextBtnCallBack }) => {
         <Button 
           label="Quit" 
           click={() => {
-            GameSFX.play("click");
+            GameSFX.play("click", soundOn);
             document.getElementById('dialog-rounded').showModal();
           }}
           className="float-right"
@@ -41,7 +45,7 @@ export const Controls = ({ canvasRef, NextBtnCallBack }) => {
                 className="nes-btn is-primary"
                 click={() => { 
                   GameSFX.silence();
-                  GameSFX.play("quit");
+                  GameSFX.play("quit", soundOn);
                 }}
               />
               <button className="nes-btn">Cancel</button>
