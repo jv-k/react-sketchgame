@@ -11,7 +11,7 @@ const typedConfig = {
   startDelay: 500
 };
 
-export function home() {
+export const Home = () => {
 
   // using useEffect from the router, seems it's the reason the linter doesn't 
   // think this fn isn't React – hacky fix for now:

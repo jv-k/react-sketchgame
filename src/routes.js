@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { home } from './views/home';
-import { game } from './views/game';
-import { result } from './views/result';
+import { Home } from './views/home';
+import { Game } from './views/game';
+import { Result } from './views/result';
 
 import { Route, Switch, Redirect } from 'react-router-dom';
 
@@ -13,9 +13,9 @@ export const Routes = () => {
         <Route exact path="/">
           <Redirect to='/home' />
         </Route>
-        <Route path="/home" component={ home } />
-        <Route path="/game" component={ game } />
-        <Route path="/result" component={ result } />
+        <Route path="/home" component={ Home } />
+        <Route path="/game" component={ Game } />
+        <Route path="/result" component={ Result } />
       </Switch>
     </>
   )

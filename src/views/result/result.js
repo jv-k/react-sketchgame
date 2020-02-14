@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "components/SketchGame/components/Button";
 
-export const result = () => {
+export const Result = () => {
   return (
     <>
       <div>result</div>
@@ -13,5 +13,6 @@ export const result = () => {
         route="/home"
         label="Home" 
       />
-    </>  );
+    </>  
+  );
 }
