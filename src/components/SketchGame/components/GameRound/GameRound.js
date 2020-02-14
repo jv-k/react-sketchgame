@@ -15,14 +15,14 @@ import { Redirect } from "react-router-dom";
 let canvasRef = React.createRef();
 
 export const GameRound = ({ index, label, timeLimit }) => {
+export const GameRound = ({ index, currentLabel, timeLimit }) => {
  
   // set-up timer
   const { timeLeft, startTimer, stopTimer } = useTimer(
     timeLimit, 
     () => roundDecider() // callback for when timer is done 
   );
-
-  const { roundDecider, isGameOver } = useRoundDecider({ label, canvasRef, stopTimer });
+  const { roundDecider, isGameOver } = useRoundDecider({ currentLabel, canvasRef, stopTimer });
 
   const renderRedirect = () => {
     if (isGameOver) return <Redirect to='/results' />;    
@@ -38,7 +38,7 @@ export const GameRound = ({ index, label, timeLimit }) => {
   }, []);
 
   return (
-    <RoundProvider value={{ index, label, timeLeft, canvasRef }}>
+    <RoundProvider value={{ index, currentLabel, timeLeft, canvasRef }}>
       { renderRedirect() }
       <div className="row">
         <div className="col">
@@ -50,9 +50,11 @@ export const GameRound = ({ index, label, timeLimit }) => {
           <AnswerCard ref={ canvasRef } />
         </div>
         <div className="col mr-3 mb-2">
+          {/* this component's class-based, so can't use 2 contexts - so forced to supply these props w/refactoring */}
           <QuestionCard 
-            label={ label }
-            timeLeft={ timeLeft }
+            label={ currentLabel } 
+            timeLeft={ timeLeft } 
+            callBack={ ()=> setStartTiming(true) }
           />
         </div>
       </div>

@@ -12,7 +12,7 @@ export const useRounds = ({ currentRound, noRounds, labels, timeLimit }) => {
       <GameRound
         index={ index } key={ index }
         timeLimit={ timeLimit }
-        label={ labels[index] }
+        currentLabel={ labelsShuffled[index] }
       />
     ) : null
   });

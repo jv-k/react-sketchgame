@@ -5,8 +5,8 @@ import { useGameContext } from  ".";
 import { getPrediction } from "utils";
 import { GameSFX } from "../utils/sounds.js";
 
-// returns an array collection of JSX round components
-export const useRoundDecider = ({ canvasRef, label, stopTimer }) => {
+// This fn performs the ML prediction and determines success + failure
+export const useRoundDecider = ({ canvasRef, currentLabel, stopTimer }) => {
 
   const [ isGameOver, setGameOver ] = useState(false);
   
@@ -22,10 +22,10 @@ export const useRoundDecider = ({ canvasRef, label, stopTimer }) => {
   const roundDecider = () => 
     (isGameOver) ? null :
       getPrediction(canvasRef, model).then(prediction => {
-        console.log(label, labels[prediction[0]]);
-
-        if (labels[prediction[0]] === label) { // SCORE!
-          // TODO: GameContext->updateNextMessage – positively!
+        console.log("expectation: " + currentLabel, "VS prediction: " + labels[prediction[0]]);
+console.log(labels);
+        if (labels[prediction[0]] === currentLabel) { 
+          // WON ROUND!
           dispatch({ type: "ADD_POINTS" });
           GameSFX.play("point_win");
         } else {
