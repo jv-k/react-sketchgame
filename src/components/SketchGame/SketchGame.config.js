@@ -5,7 +5,9 @@ export const SketchGameConfig = {
   config: {
     noRounds: 10,
     timeLimit: 20, // seconds
+    
     labels: require("labels.json"),
+    randomiseLabels: true,
     model: loadModel("./model/model.json"),
     
     msgs: {

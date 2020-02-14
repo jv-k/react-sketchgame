@@ -1,11 +1,18 @@
 import React from "react";
 import { GameRound } from  "../components/GameRound";
+import { arrayShuffle } from "utils";
 
 // returns an array collection of JSX round components
-export const useRounds = ({ currentRound, noRounds, labels, timeLimit }) => {
-    
-  let rounds = Array.apply(null, { length: noRounds });
+export function useRounds({ currentRound, noRounds, timeLimit, labels, randomiseLabels }) {
+  
+  // Memoize label so that randomisation doesn't happen per round. This was a nice solution.
+  // Because: change of state in ancestor's context triggers re-render to all child components as mention in:
+  // https://reactjs.org/docs/hooks-reference.html#usecontext
+  const labelsShuffled = React.useMemo(() => {
+    return (randomiseLabels) ? arrayShuffle(labels.slice()) : labels;
+  },[]);
 
+  let rounds = Array.apply(null, { length: noRounds });
   rounds = rounds.map((round, index) => {  
     // only make visible the currentRound
     return (currentRound === index) ? (
