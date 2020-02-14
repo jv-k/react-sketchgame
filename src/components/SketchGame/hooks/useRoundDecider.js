@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { useGameContext } from  ".";
 import { useLocalStorage } from ".";
@@ -10,30 +10,33 @@ import { GameSFX } from "../utils/sounds.js";
 export const useRoundDecider = ({ canvasRef, currentLabel, stopTimer }) => {
 
   const [ isGameOver, setGameOver ] = useState(false);
-  
-  const { model, 
-          labels, 
-          currentRound, 
-          setCurrentRound, 
-          noRounds,
-          score,
-          dispatch
-        } = useGameContext();
   const [ soundOn ] = useLocalStorage("soundOn");
 
+  const { 
+    model, 
+    labels, 
+    currentRound, 
+    setCurrentRound, 
+    noRounds,
+    score,
+    dispatch,
+    setWonLastRound
+  } = useGameContext();
 
   const roundDecider = () => 
     (isGameOver) ? null :
       getPrediction(canvasRef, model).then(prediction => {
         console.log("expectation: " + currentLabel, "VS prediction: " + labels[prediction[0]]);
-console.log(labels);
+
         if (labels[prediction[0]] === currentLabel) { 
           // WON ROUND!
           dispatch({ type: "ADD_POINTS" });
           GameSFX.play("point_win", soundOn);
+          setWonLastRound(true);
         } else {
-          // TODO: GameContext->updateNextMessage – sarcastically!
           GameSFX.play("point_lose", soundOn);
+          // LOST ROUND!
+          setWonLastRound(false);
         }
         
         if (currentRound < noRounds - 1) {
@@ -49,7 +52,7 @@ console.log(labels);
       });
   
   useEffect(() => {
-    console.log("Score:", score);
+    console.log("Score:", score, "/", noRounds);
   }, [currentRound, isGameOver]);
 
   return { roundDecider, isGameOver };

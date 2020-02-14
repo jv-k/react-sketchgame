@@ -20,6 +20,10 @@ export const QuestionCard = ({ label, timeLeft }) => {
         ...typedConfig,
         onComplete: (self) => {
         }
+        onComplete: (self) => { 
+          // tell GameRound provider to start the timer when text typing is done:
+          this.props.callBack();
+        } 
       }
     );
 

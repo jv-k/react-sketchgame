@@ -1,9 +1,9 @@
 import React, { useReducer, useState } from "react";
 
-import { Logo }      from "./components/Logo";
+import { Logo } from "./components/Logo";
 
 import { GameProvider } from "./providers";
-import { pointReducer }  from "./reducers";
+import { pointReducer } from "./reducers";
 import { useRounds } from "./hooks";
 
 // styles
@@ -14,11 +14,21 @@ export const SketchGame = ({ config }) => {
 
   const [ score, dispatch ] = useReducer(pointReducer, 0);
   const [ currentRound, setCurrentRound ] = useState(0);
- 
-  // TODO: 
-  // can't pass these by context (useRounds isn't mounted and context isn't present yet
-  // in this document – note: it would work if SketchGame was wrapper in a Provider
-  // from an outside wrapper component) so have to use arguments
+    
+  // this is used to determine the nature of the speech bubble in the next round,
+  // ie, to taunt or congratulate!
+  const [ wonLastRound, setWonLastRound ] = useState(false); 
+
+  const state = {
+    score,
+    dispatch,
+    currentRound,
+    setCurrentRound,
+    wonLastRound,
+    setWonLastRound
+  }
+
+  // Note: can't pass these by context (useRounds isn't mounted and GameProvider context n/a yet):
   const { rounds } = useRounds({ ...config, currentRound, setCurrentRound });
 
   return(  
@@ -26,14 +36,7 @@ export const SketchGame = ({ config }) => {
       <Logo />      
       <div className="nes-container is-rounded p-2" style={{ backgroundColor: "rgba(0,0,0,0)"}} >
 
-        <GameProvider value={{
-          ...config, 
-          score,
-          dispatch, 
-          model,
-          currentRound, 
-          setCurrentRound           
-        }}>
+        <GameProvider value={{ ...config, ...state }}>
           { rounds }
         </GameProvider>
 

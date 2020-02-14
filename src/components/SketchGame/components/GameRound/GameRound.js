@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { RoundProvider } from "../../providers";
 
@@ -14,28 +14,33 @@ import { Redirect } from "react-router-dom";
 
 let canvasRef = React.createRef();
 
-export const GameRound = ({ index, label, timeLimit }) => {
 export const GameRound = ({ index, currentLabel, timeLimit }) => {
  
-  // set-up timer
-  const { timeLeft, startTimer, stopTimer } = useTimer(
+  // this is set to true when typing animation is complete:
+  // reset upon each round, as previous round sets it to `true`
+  const [ startTiming, setStartTiming ] = useState(false);  
+
+  // set-up timer:
+  const { timeLeft, startTimer, stopTimer } = useTimer( 
     timeLimit, 
-    () => roundDecider() // callback for when timer is done 
+    // callback for when timer is done – does all the HEAVY lifting
+    // NB: can be invoked prematurely via 'next' button
+    () => roundDecider()
   );
   const { roundDecider, isGameOver } = useRoundDecider({ currentLabel, canvasRef, stopTimer });
 
   const renderRedirect = () => {
-    if (isGameOver) return <Redirect to='/results' />;    
+    if (isGameOver) 
+      return <Redirect to='/results' />;    
   }
   
   useEffect(() => {
-    startTimer();        
-
-    return () => { // cleanup:
-      stopTimer(); 
+    if (startTiming) {
+      startTimer();
+      console.log("GR: startTiming!");
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return () => { stopTimer() };
+  }, [startTiming]);
 
   return (
     <RoundProvider value={{ index, currentLabel, timeLeft, canvasRef }}>
