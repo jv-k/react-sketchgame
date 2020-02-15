@@ -11,7 +11,7 @@ export const useRoundDecider = ({ canvasRef, currentLabel, stopTimer }) => {
 
   const [ isGameOver, setGameOver ] = useState(false);
   const [ soundOn ] = useLocalStorage("soundOn");
-
+   
   const { 
     model, 
     labels, 
@@ -23,6 +23,8 @@ export const useRoundDecider = ({ canvasRef, currentLabel, stopTimer }) => {
     setWonLastRound
   } = useGameContext();
 
+  const finalRound = currentRound === noRounds;
+
   const roundDecider = () => 
     (isGameOver) ? null :
       getPrediction(canvasRef, model).then(prediction => {
@@ -31,12 +33,12 @@ export const useRoundDecider = ({ canvasRef, currentLabel, stopTimer }) => {
         if (labels[prediction[0]] === currentLabel) { 
           // WON ROUND!
           dispatch({ type: "ADD_POINTS" });
-          GameSFX.play("point_win", soundOn);
           setWonLastRound(true);
+          if (!finalRound) GameSFX.play("point_win", soundOn);
         } else {
-          GameSFX.play("point_lose", soundOn);
           // LOST ROUND!
           setWonLastRound(false);
+          if (!finalRound) GameSFX.play("point_lose", soundOn);
         }
         
         if (currentRound < noRounds - 1) {
