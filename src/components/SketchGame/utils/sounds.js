@@ -6,8 +6,8 @@ const GameSFXConfig = {
   sfx: {
     click: "btn.wav",
     clear: "clear.wav",
-    lose:  "game_lose.wav",
-    win:   "game_win.wav",
+    game_lose:  "game_lose.wav",
+    game_win:   "game_win.wav",
     point_win: "point_win.wav", 
     point_lose: "point_lose.wav", 
     time_tick: "time_seconds.wav", 
