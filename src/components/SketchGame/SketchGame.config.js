@@ -15,24 +15,31 @@ export const SketchGameConfig = {
       question: "You have <span id=\"timeLeft\">{{timeLeft}}</span> seconds to draw a <span class=\"text-danger\">{{label}}</span>",
       questionSuffix: " in the box!", // only for the first round
       pointScore: [
-        "Not bad at all.",
+        "Not bad at all!",
         "That was a fine sketch!",
         "You're good!",
-        "Drawing is your forté!"
+        "Drawing is your forté!",
+        "Very arty!",
+        "Is that you, Picasso..?"
       ],
       pointLose: [
-        "Do you need some drawing lessons...!?", 
+        "Need some drawing lessons...?!", 
         "Don't forget to wear your glasses...!",
-        "You can do better...!"
+        "You can do better...!",
+        "Mehhh!",
+        "Don't give up your dayjob yet.",
+        "No AI would understand that ;)"
       ],
       win:  {
-        low: "Good effort! Your score was {{score}}/{{noRounds}}. Give it another go!", 
+        low: "Good effort! Your score could be better. Give it another go!", 
         high: "Well done! Have you considered selling your masterpieces?",
-        perfect: "Maestro! You win! You got them all right :)"
+        perfect: "Maestro! You win! You got them all right :)",
+        sound: "game_win"
       },
       lose: {
         low: "Oops... Try harder next time! Maybe you can score more than {{score}}!",
-        high: "You scored {{score}}/{{noRound}}! Almost there, but not quite!"
+        high: "Almost there, but not quite!",
+        sound: "game_lose"
       },
       pause: "^500 "
     }
