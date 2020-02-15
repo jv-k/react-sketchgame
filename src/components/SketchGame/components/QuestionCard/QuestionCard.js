@@ -12,8 +12,7 @@ export class QuestionCard extends React.Component {
     super();
     this.state = {
       timeRef: React.createRef(),
-      isTyped: false,
-      typed: null
+      isTyped: false
     }
     this.typed = {};
   }
@@ -37,7 +36,6 @@ export class QuestionCard extends React.Component {
           + msgs.question
             .replace("{{label}}", this.props.label)
             .replace("{{timeLeft}}", this.props.timeLeft)
-            .replace("{{timeLeftRef}}", this.timeLeft)
           + (isFirstRound ? msgs.questionSuffix : "!");
   }
 
@@ -74,7 +72,7 @@ export class QuestionCard extends React.Component {
     return(
       <>
         <div className="nes-balloon from-right w-100 mt-1">
-            <span className="msgTxt" ref={this.timeLeft}></span>
+            <span className="msgTxt"></span>
         </div>
         <i className="nes-mario reflect-h float-right"></i>
       </>

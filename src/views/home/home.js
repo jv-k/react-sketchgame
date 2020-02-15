@@ -20,6 +20,7 @@ export const Home = () => {
 
   // save to local storage so that components that use SFX can respect the app setting:
   const [ soundOn, setSoundOn ] = useLocalStorage("soundOn");
+  if (soundOn === undefined) setSoundOn(true);
    
   useEffect(() => {
     // mount:
@@ -32,7 +33,7 @@ export const Home = () => {
     return () => {
       typed.destroy();
     }
-  });
+  },[]);
 
   return (
     <div className="h-100 d-flex align-items-center">
@@ -56,9 +57,8 @@ export const Home = () => {
         <div className="float-right">
           <Checkbox 
             isChecked={ soundOn } 
-            onChange={ 
-              (checked) => setSoundOn(checked) 
-            }/>
+            onChange={ setSoundOn }
+          />
           <Button 
             route="/game"
             click={() => {
