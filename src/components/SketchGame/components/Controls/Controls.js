@@ -1,11 +1,13 @@
 import React from "react";
+import { withRouter } from 'react-router-dom' 
+
 import { Button } from "../Button";
 import { clearCanvas } from "../Canvas";
 import { GameSFX } from "../../utils/sounds.js";
 
 import { useLocalStorage } from "../../hooks";
 
-export const Controls = ({ canvasRef, NextBtnCallBack }) => {
+ export const Controls = withRouter((props) => {
 
   const [ soundOn ] = useLocalStorage("soundOn");
 
@@ -15,14 +17,14 @@ export const Controls = ({ canvasRef, NextBtnCallBack }) => {
       <Button 
           label="Clear" 
           click={() => { 
-            clearCanvas(canvasRef);
+            clearCanvas(props.canvasRef);
             GameSFX.play("clear", soundOn);
           }} 
           className="is-warning"
         /> 
         <Button 
           label="Next >" 
-          click={() => NextBtnCallBack() } 
+          click={() => props.NextBtnCallBack() } 
           className="is-success"
         /> 
       </div>
@@ -31,7 +33,11 @@ export const Controls = ({ canvasRef, NextBtnCallBack }) => {
           label="Quit" 
           click={() => {
             GameSFX.play("click", soundOn);
-            document.getElementById('dialog-rounded').showModal();
+            var dialog = document.getElementById('dialog-rounded');
+            if (dialog.showModal !== undefined)
+              dialog.showModal()
+            else 
+              props.history.push('/');
           }}
           className="float-right"
         />  
@@ -55,4 +61,4 @@ export const Controls = ({ canvasRef, NextBtnCallBack }) => {
       </div>
     </div>
   );
-}
+});
