@@ -27,7 +27,16 @@ class SFXPlayer {
   }
 
   play = (id, soundOn) => {
-    if (soundOn) this.sfx[id].start();
+    if (soundOn) {
+      if (this.sfx[id].loaded) {
+        this.sfx[id].start();
+      } else {
+        Tone.Buffer.on("load", () => {
+          this.sfx[id].start();
+        });
+      }
+      console.log("SFX: ", id);
+    }
   }
 
   stop = (id) => {
