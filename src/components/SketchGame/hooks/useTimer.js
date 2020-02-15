@@ -25,6 +25,7 @@ export const useTimer = (timeToCountDown, callBack) => {
 
       if (timeLeft === 0) {
         stop();
+        clearInterval(interval);
         callBack.call();
         return;
       }
