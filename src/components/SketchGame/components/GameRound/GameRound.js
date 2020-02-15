@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 
 import { RoundProvider } from "../../providers";
 
+import { useGameContext } from  "../../hooks";
 import { useRoundDecider } from "../../hooks";
 import { useTimer } from  "../../hooks";
 
@@ -10,12 +12,13 @@ import { AnswerCard } from "../AnswerCard";
 import { QuestionCard } from "../QuestionCard";
 import { Controls }  from "../Controls";
 
-import { Redirect } from "react-router-dom";
 
 let canvasRef = React.createRef();
 
 export const GameRound = ({ index, currentLabel, timeLimit }) => {
  
+  const { score, noRounds, msgs } = useGameContext();
+
   // this is set to true when typing animation is complete:
   // reset upon each round, as previous round sets it to `true`
   const [ startTiming, setStartTiming ] = useState(false);  
@@ -24,14 +27,26 @@ export const GameRound = ({ index, currentLabel, timeLimit }) => {
   const { timeLeft, startTimer, stopTimer } = useTimer( 
     timeLimit, 
     // callback for when timer is done – does all the HEAVY lifting
-    // NB: can be invoked prematurely via 'next' button
-    () => roundDecider()
+    // NB: caroundDecider can be invoked prematurely with 'next' button
+    () => {
+      roundDecider()
+    }
   );
   const { roundDecider, isGameOver } = useRoundDecider({ currentLabel, canvasRef, stopTimer });
 
+  // if game rounds are over, go to the next round
   const renderRedirect = () => {
     if (isGameOver) 
-      return <Redirect to='/results' />;    
+      return (
+        <Redirect to={{
+          pathname: "/result",
+          state: {
+            score: score,
+            noRounds: noRounds,
+            msgs: msgs
+          }
+        }} />
+      );
   }
   
   useEffect(() => {
