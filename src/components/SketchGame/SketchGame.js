@@ -29,7 +29,7 @@ export const SketchGame = ({ config }) => {
   }
 
   // Note: can't pass these by context (useRounds isn't mounted and GameProvider context n/a yet):
-  const { rounds } = useRounds({ ...config, currentRound, setCurrentRound });
+  const { rounds } = useRounds({ ...config, currentRound });
 
   return(  
     <>
