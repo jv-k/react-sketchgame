@@ -13,7 +13,7 @@ VIEWS + ROUTES
   – Each page is a react component, in the views folder
   – Each view has a route that triggers it
   – A page component uses other components to assemble the page like lego blocks
-  – Route logic is mostly non reusable, means view components are not reusable,
+  – Route logic is mostly non-reusable, means view components are not reusable,
     but we want the components inside the components directory to be reusable
 
 COMPONENTS

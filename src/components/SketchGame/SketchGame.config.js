@@ -27,13 +27,13 @@ export const SketchGameConfig = {
         "Don't forget to wear your glasses...!",
         "You can do better...!",
         "Mehhh!",
-        "Don't give up your dayjob yet.",
+        "Don't give up your dayjob just yet.",
         "No AI would understand that ;)"
       ],
       win:  {
         low: "Good effort! Your score could be better. Give it another go!", 
         high: "Well done! Have you considered selling your masterpieces?",
-        perfect: "Maestro! You win! You got them all right :)",
+        perfect: "Maestro! You win! You got them all correct :)",
         sound: "game_win"
       },
       lose: {
