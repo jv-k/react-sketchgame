@@ -38,8 +38,8 @@ import { SketchGame } from "components/SketchGame";
 import { SketchGameConfig } from "components/SketchGame/SketchGame.config.js";
 import { Routes } from 'routes.js';
 import { Home } from 'views/home';
-import { Game } from 'views/game';
-import { Result } from 'views/result';
+// import { Game } from 'views/game';
+// import { Result } from 'views/result';
 
 // use Jest's automagically provided module mocks
 jest.mock('./utils/sounds.js');

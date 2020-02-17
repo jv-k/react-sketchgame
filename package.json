@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "@tensorflow/tfjs": "^1.5.2",
-    "@testing-library/react": "^9.4.0",
     "bootstrap": "^4.4.1",
     "nes.css": "^2.3.0",
     "node-sass": "^4.13.1",
