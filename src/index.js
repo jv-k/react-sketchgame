@@ -41,8 +41,10 @@ import * as serviceWorker from "./serviceWorker";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./styles/index.scss";
 
+// This will prepend necessary path and make router work in each environment: local as well as production
+// for relative paths to work when app is served from a directory other than root
 ReactDOM.render(
-  <Router>
+  <Router basename={ process.env.PUBLIC_URL }>
     <Routes/>
   </Router>,
   document.getElementById("root")

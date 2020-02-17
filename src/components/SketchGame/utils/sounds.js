@@ -2,7 +2,7 @@
 import * as Tone from "tone";
 
 const GameSFXConfig = {
-  path: "/assets/sounds/",
+  path: "./assets/sounds/",
   sfx: {
     click: "btn.wav",
     clear: "clear.wav",

@@ -1,15 +1,14 @@
-// load data
-import { loadModel } from "utils";
+import { loadModel } from 'utils';
 
 export const SketchGameConfig = {
   config: {
     noRounds: 10,
     timeLimit: 20, // seconds
 
-    labels: require("labels.json"),
+    model: loadModel('./assets/models/model.json'),
+    labels: require("../../labels.json"),
     randomiseLabels: true,
-    model: loadModel("./model/model.json"),
-    
+
     msgs: {
       intro: "Let's get started.",
       question: "You have <span id=\"timeLeft\">{{timeLeft}}</span> seconds to draw a <span class=\"text-danger\">{{label}}</span>",
