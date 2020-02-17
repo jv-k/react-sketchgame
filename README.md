@@ -1,9 +1,15 @@
 # EPFL-EXTS React Course – Final Project
 
+
 ## ✏️ A Multi-round Sketching Game
 
-## ⏳ Timed Drawing
+![Intro view](/imgs/scr-01.jpg)
 
+![Game view](/imgs/scr-02.jpg)
+
+![Results view](/imgs/scr-03.jpg)
+
+## ⏳ Timed Drawing
 The rounds are timed. For each round, a time counts-down from 20 seconds. 
 
 If by the end of those **20 seconds** the player has failed to draw a passable sketch, no points will be awarded, and the player will proceed to the next round.
