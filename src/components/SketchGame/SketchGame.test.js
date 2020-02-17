@@ -43,7 +43,8 @@ import { Result } from 'views/result';
 
 // use Jest's automagically provided module mocks
 jest.mock('./utils/sounds.js');
-jest.mock('typed.js'); 
+jest.mock('typed.js');
+jest.mock('tone');
 jest.mock('./components/Canvas');
 
 const root = document.createElement('div');
@@ -125,8 +126,6 @@ describe('HOME VIEW TESTS', () => {
 
 
 describe('GAME VIEW TESTS', () => {
-
-
 });
 describe('RESULTS VIEW TESTS', () => {
 });
