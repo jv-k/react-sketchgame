@@ -26,6 +26,7 @@ import { useLocalStorage } from "../../hooks";
           label="Next >" 
           click={() => props.NextBtnCallBack() } 
           className="is-success"
+          id="btn-next"
         /> 
       </div>
       <div className="col"> 
@@ -40,6 +41,7 @@ import { useLocalStorage } from "../../hooks";
               props.history.push('/');
           }}
           className="float-right"
+          id="btn-quit"
         />  
         <dialog className="nes-dialog is-rounded" id="dialog-rounded">
           <form method="dialog">
@@ -52,8 +54,9 @@ import { useLocalStorage } from "../../hooks";
                 click={() => { 
                   GameSFX.silence();
                   GameSFX.play("quit", soundOn);
-                }}
-              />
+                }}                
+                id="btn-quit-final"
+                />
               <button className="nes-btn">Cancel</button>
             </menu>
           </form>

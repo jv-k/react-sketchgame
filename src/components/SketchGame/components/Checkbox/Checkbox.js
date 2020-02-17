@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const Checkbox = ({ isChecked, onChange }) => {
+export const Checkbox = ({ isChecked, onChange, id }) => {
 
   const [ checked, setChecked ] = useState(isChecked);
   
@@ -14,6 +14,7 @@ export const Checkbox = ({ isChecked, onChange }) => {
           setChecked(e.target.checked);
           onChange(e.target.checked);
         }}
+        id={ id }
       />
       <span>Sound</span>
     </label>  

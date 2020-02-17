@@ -8,6 +8,7 @@ const ButtonElem = (props) => {
       className={ "nes-btn" + (props.className ? " " + props.className : "") }
       onClick={ props.click }
       style={ props.style }
+      id={ props.id }
     >
       { props.label }
     </button>
@@ -26,6 +27,7 @@ export const Button = (props) => {
         <ButtonElem 
           label={ props.label }
           className={ props.buttonClassName }
+          id={ props.id }
         />
       </Link>
     ) 

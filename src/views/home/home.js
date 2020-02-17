@@ -58,6 +58,7 @@ export const Home = () => {
           <Checkbox 
             isChecked={ soundOn } 
             onChange={ setSoundOn }
+            id="option-sound"
           />
           <Button 
             route="/game"
@@ -65,6 +66,7 @@ export const Home = () => {
               GameSFX.play("click", soundOn);
               GameSFX.play("theme", soundOn);
             }}
+            id="btn-play"
             label="Play Game >" 
             className="mt-3"
             buttonClassName="is-success"
