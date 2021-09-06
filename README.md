@@ -57,5 +57,5 @@ You are more than welcome to borrow styles and color schemes from the other proj
 - [ ] Add more integration / unit tests for game & results views
 - [ ] Make the score a factor in the time allowed per round ("hard" mode)
 - [ ] Improve / expand detection and no. of recognised things
-- [ ] Move styles out of JSX abd use `styled-components`
+- [ ] Move styles out of JSX and use `styled-components`
 - [ ] Improve / polish the window size + mobile platform usability
