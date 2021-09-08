@@ -1,11 +1,10 @@
 {
-  "name": "react-finalproject",
+  "name": "react-sketchgame",
   "version": "0.1.0",
-  "description": "Sketch round-based game using ReactJS – a project for EPFL-EXTS React course",
-  "author": "John Valai Kamaly",
+  "description": "This a multi-round sketchgame built using ReactJS, and utilizes @googlecreativelab/quickdraw-dataset machine learning dataset to recognise the user's drawings",
+  "author": "John Valai",
   "license": "ISC",
-  "homepage.local": "https://jvkdev.github.io/react-finalproject",
-  "homepage": "http://epfl-extension-school.github.io/project-react-c1-s8-2286-1500",
+  "homepage": "https://jv-k.github.io/react-sketchgame",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
