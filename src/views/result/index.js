@@ -1,1 +1,1 @@
-export * from "./Result";
+export { Result } from "./result";
