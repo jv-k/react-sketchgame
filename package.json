@@ -1,6 +1,6 @@
 {
   "name": "react-sketchgame",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "This a multi-round sketchgame built using ReactJS, and utilizes @googlecreativelab/quickdraw-dataset machine learning dataset to recognise the user's drawings",
   "author": "John Valai",
   "license": "ISC",
