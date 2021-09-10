@@ -46,8 +46,8 @@ export const Home = () => {
           >
             <div className="typed-src d-none">
               <p>This game has been modeled on Google's <a href="https://quickdraw.withgoogle.com/data">Quick, Draw!</a>^2000</p>
-              <p>^1000Brought to you by <span className="text-primary">@jvkdev</span> and <span className="text-danger">Super Mari</span>^500</p>
-              <p>Brought to you by <span className="text-primary">@jvkdev</span> and <span className="text-danger">EPFL Extension School</span> <i className="nes-icon heart align-middle"></i></p>
+              <p>^1000Brought to you by <span className="text-primary">@jv-k</span> and <span className="text-danger">Super Mari</span>^500</p>
+              <p>Brought to you by <span className="text-primary">@jv-k</span> and <span className="text-danger">EPFL Extension School</span> <i className="nes-icon heart align-middle"></i></p>
             </div>
             <div><span className="typed-msg"></span></div>
           </div>
