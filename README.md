@@ -8,8 +8,6 @@ This a multi-round sketching game built using ReactJS, and utilizes [@googlecrea
 
 ## Quick Start 🎬
 
-<<<<<<< Updated upstream
-=======
 This app has been tested and working with `node 10.16.0 - 14.17.0` on `MacOS`, please ensure you have a version installed within this range.
 
 To install:
@@ -22,7 +20,6 @@ npm run start # Run game
 ## Timed Drawing ⏳
 The rounds are timed. For each round, a time counts down from 20 seconds. 
 
->>>>>>> Stashed changes
 If by the end of those **20 seconds** the player has failed to draw a passable sketch, no points will be awarded, and the player will proceed to the next round.
 
 If the player passes the round by sketching a passable drawing, a point is awarded, and the player advances to the next round.
