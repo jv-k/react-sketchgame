@@ -1,3 +1,3 @@
 // An entry file that merely re-exports its siblings to keep things neat.
-export * from './gameProvider';
-export * from './roundProvider';
+export * from './GameProvider';
+export * from './RoundProvider';

@@ -1,12 +1,16 @@
 /* 
 Title:
-  Sketch Game – EPFL EXTS React UI course final project
+  react-sketchgame ⚛️✍️
 Author: 
-  John Valai kamaly
-License: ISC
+  John Valai 
+License: 
+  ISC
+Homepage:
+  https://github.com/jv-k/react-sketchgame
 
-Here are some of the rules which I followed, in order to create a discoverable, neat, easy to maintain+test+debug,
-and to follow the paradigm of separation of concerns:
+Description:
+  Here are some of the rules which I followed, in order to create a discoverable, neat, easy to maintain+test+debug,
+  and to follow the paradigm of separation of concerns:
 
 VIEWS + ROUTES
   – Routing logic is placed insde router.js
@@ -41,8 +45,8 @@ import * as serviceWorker from "./serviceWorker";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./styles/index.scss";
 
-// This will prepend necessary path and make router work in each environment: local as well as production
-// for relative paths to work when app is served from a directory other than root
+/* This will prepend necessary path and make router work in each environment: local as well as production
+*  for relative paths to work when app is served from a directory other than root */
 ReactDOM.render(
   <Router basename={ process.env.PUBLIC_URL }>
     <Routes/>
@@ -50,7 +54,7 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
+/* If you want your app to work offline and load faster, you can change
+*  unregister() to register() below. Note this comes with some pitfalls.
+*  Learn more about service workers: http://bit.ly/CRA-PWA */
 serviceWorker.unregister();

@@ -55,7 +55,7 @@ export const GameRound = ({ index, currentLabel, timeLimit }) => {
       console.log("GR: startTiming!");
     }
     return () => { stopTimer() };
-  }, [startTiming]);
+  }, [startTiming, startTimer, stopTimer]);
 
   return (
     <RoundProvider value={{ index, currentLabel, timeLeft, canvasRef }}>

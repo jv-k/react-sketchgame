@@ -55,7 +55,7 @@ export const useRoundDecider = ({ canvasRef, currentLabel, stopTimer }) => {
   
   useEffect(() => {
     console.log("Score:", score, "/", noRounds);
-  }, [currentRound, isGameOver]);
+  }, [currentRound, isGameOver, noRounds, score]);
 
   return { roundDecider, isGameOver };
 };
