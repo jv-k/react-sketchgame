@@ -63,8 +63,8 @@ export const Result = (props) => {
     return () => {
       typed.destroy();
     }
-  },[]);  
-
+  }, [msg, msgs.lose.sound, msgs.win.sound, soundOn, wonHigh, wonLow, wonPerfect]);  
+  
   return (
     <div className="h-100 d-flex align-items-center">
       <div className="container-sm">

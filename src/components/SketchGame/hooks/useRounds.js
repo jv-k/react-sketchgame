@@ -10,7 +10,7 @@ export function useRounds({ currentRound, noRounds, timeLimit, labels, randomise
   // https://reactjs.org/docs/hooks-reference.html#usecontext
   const labelsShuffled = React.useMemo(() => {
     return (randomiseLabels) ? arrayShuffle(labels.slice()) : labels;
-  },[]);
+  }, [labels, randomiseLabels]);
 
   let rounds = Array.apply(null, { length: noRounds });
   rounds = rounds.map((round, index) => {  
