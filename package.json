@@ -4,8 +4,11 @@
   "description": "This a multi-round sketchgame built using ReactJS, and utilizes @googlecreativelab/quickdraw-dataset machine learning dataset to recognise the user's drawings",
   "author": "John Valai",
   "license": "ISC",
-  "homepage.remote": "https://jv-k.github.io/react-sketchgame",
-  "homepage": "https://localhost/",
+  "homepage": ".",
+  "repository": {
+    "type": "git",
+    "url": "hhttps://jv-k.github.io/react-sketchgame.git"
+  },
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
