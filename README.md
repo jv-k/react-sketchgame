@@ -42,7 +42,7 @@ I made appropriate use of the following React functions and patterns:
 - [x] Three test suites that test the features of the UI
 
 ## TODO – A future version 🚧
-- [ ] Create & add gameplay GIFs to docs
+- [x] Create & add gameplay GIFs to docs
 - [ ] Add more integration / unit tests for game & results views
 - [ ] Make the score a factor in the time allowed per round ("hard" mode)
 - [ ] Improve / expand detection and no. of recognised things
