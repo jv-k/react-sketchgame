@@ -1,5 +1,7 @@
 # react-sketchgame ⚛️✍️
 
+[![CodeQL](https://github.com/jv-k/react-sketchgame/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/jv-k/react-sketchgame/actions/workflows/codeql-analysis.yml)
+
 ## A Multi-round Sketching Game ✏️
 
 This a multi-round sketching game built using ReactJS, and utilizes [@googlecreativelab/quickdraw-dataset](https://github.com/googlecreativelab/quickdraw-dataset) machine learning dataset to recognise the user's drawings.
