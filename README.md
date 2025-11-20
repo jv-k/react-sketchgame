@@ -3,7 +3,7 @@
 [![CodeQL](https://github.com/jv-k/react-sketchgame/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/jv-k/react-sketchgame/actions/workflows/codeql-analysis.yml)  [![CodeFactor](https://www.codefactor.io/repository/github/jv-k/react-sketchgame/badge)](https://www.codefactor.io/repository/github/jv-k/react-sketchgame)
 ## A Multi-round Sketching Game ✏️
 
-This a multi-round sketching game built using ReactJS, and utilizes [@googlecreativelab/quickdraw-dataset](https://github.com/googlecreativelab/quickdraw-dataset) machine learning dataset to recognise the user's drawings.
+This is a multi-round sketching game built using ReactJS, and uses [@googlecreativelab/quickdraw-dataset](https://github.com/googlecreativelab/quickdraw-dataset) machine learning dataset to recognize the user's drawings.
 
 ![Game view](/imgs/screenshot.gif)
 
@@ -19,28 +19,23 @@ npm run start # Run game
 ```
 
 ## Timed Drawing ⏳
-The rounds are timed. For each round, a time counts down from 20 seconds. 
-
-If by the end of those **20 seconds** the player has failed to draw a passable sketch, no points will be awarded, and the player will proceed to the next round.
-
-If the player passes the round by sketching a passable drawing, a point is awarded, and the player advances to the next round.
+Each round is timed with a 20-second countdown. If the player successfully sketches a recognizable drawing within the time limit, they are awarded a point and advance to the next round. If the time runs out before a passable sketch is drawn, no points are awarded, and the game proceeds to the next round.
 
 ## Winning or losing 🏆
-The final view displays the amount of points obtained, as well as a text that indicates whether the player has won or lost the game.
+The final screen displays the total score and a message indicating whether the player won or lost.
 
 ## Simple navigation between views ↔️
 This app uses React-Router to navigate between the start screen and game-play.
 
 ## Demonstrating knowledge of ReactJS 🎓
-I made appropriate use of the following React functions and patterns:
+This project demonstrates the following React features and patterns:
 
-- [x] Both class-based and function-based components
+- [x] Class-based and functional components
 - [x] Custom hooks
-- [x] Appropriate use of the useReducer() hook
-- [x] Appropriate use of side-effects
-  - [x] i.e. the useEffect() hook, or the componentDidMount() lifecycle methods
-- [x] Use of Context to avoid "prop-drilling"
-- [x] Three test suites that test the features of the UI
+- [x] State management with `useReducer`
+- [x] Side-effect management (e.g., `useEffect`, lifecycle methods)
+- [x] Context API to avoid prop-drilling
+- [x] Unit testing for UI components
 
 ## TODO – A future version 🚧
 - [x] Create & add gameplay GIFs to docs
